@@ -11,13 +11,21 @@ public class HuffmanTreeNode {
     public HuffmanTreeNode() {
     }
 
+    /**
+     * Intialize a node by using two other nodes these nodes will be the left and
+     * the right childs the sum of these nodes will the data of that node example :
+     * {a,5},{b,3} => {ab,8}
+     * 
+     * @param left  a HuffmanTreeNode will be the left child
+     * @param right a HuffmanTreeNode will be the right child
+     */
     public void createByTwoChilds(HuffmanTreeNode left, HuffmanTreeNode right) {
-        this.left = left;
-        this.right = right;
         AsciiElement sumNode = new AsciiElement();
         sumNode.setName(left.getData().getName().concat(right.getData().getName()));
         sumNode.setFrequency(left.getData().getFrequency() + right.getData().getFrequency());
         this.data = sumNode;
+        this.left = left;
+        this.right = right;
     }
 
     public boolean isLeaf() {
